@@ -16,3 +16,4 @@
 ### What I learned from 16.12.2024. tasks:
 
 - I can use Prisma to work with MySQL using JS like code, and not with queries directly - it does it for us under the hood, with all the security, etc.
+- ORM - Object relational mapping - use object oriented code to express data instead of sql code - higher level instead of lower level control
