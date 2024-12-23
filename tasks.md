@@ -6,9 +6,9 @@
 
 - Set on submit for the form to add "New Project" to database
 - Add top navigation component with home, signup and login.
-  - If user logged in show home and logout buttons
-  - Underline / style current page button and make it not clickable
-  - Put my email somewhere so people can contact me if they forget password so I can reset (for now)
+  - If user logged in show projects, profile, logout buttons
+  - Underline / style current page button ☑️
+  - Put my email somewhere so people can contact me if they forget password so I can reset (for now) ☑️
 - Add aside that has "create new project" button
   - If user not logged in - take him to login page
   - Login page will also have a "Not a user - sign up here" button

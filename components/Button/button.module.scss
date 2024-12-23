@@ -1,0 +1,11 @@
+.button {
+  font-family: var(--font-bungee);
+  padding: 5px 12px;
+  display: block;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: var(--red);
+  color: var(--white);
+}

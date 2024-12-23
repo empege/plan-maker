@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--green);
+}
+
+.wrapper {
+  display: flex;
+}
+
+.item {
+  list-style-type: none;
+}
+
+.email {
+  font-family: var(--font-bungee);
+  padding: 5px 12px;
+  display: block;
+}
