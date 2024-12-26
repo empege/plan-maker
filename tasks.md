@@ -15,6 +15,10 @@
   - For logged in users there will be "My Projects" tab in the aside underwhich all projects of that user will be listed - they can click on them to go to that project
 - Clicking on any project in the home page takes you to the project page. Only logged in user that created this specific project can edit/delete etc
 
+### What I learned from 16.12.2024. tasks:
+
+JWT - JSON Web Tokens vs Server Side Session. SSS is creating and storing some hash which is also sent to client, which check it and knows whether for example if user is authenticated or not. JWT has the server create token, send it to client, and client then with this token doesn't need to go back and forth with server to keep checking but has this token key on client side.
+
 ## Starting out...
 
 ### 16.12.2024.

@@ -1,7 +1,12 @@
-import Button from "@/components/Button/Button"
+import Button from "@/components/NavButton/NavButton"
 import styles from "./navigation.module.scss"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/api/auth/[...nextauth]/route"
+import LogoutButton from "../NavButton/LogoutButton"
 
-const Navigation = () => {
+const Navigation = async () => {
+  const session = await getServerSession(authOptions)
+
   return (
     <div>
       <nav className={styles.navigation}>
@@ -10,12 +15,26 @@ const Navigation = () => {
           <li className={styles.item}>
             <Button href='/'>Projects</Button>
           </li>
-          <li className={styles.item}>
-            <Button href='/signup'>Signup</Button>
-          </li>
-          <li className={styles.item}>
-            <Button href='/login'>Login</Button>
-          </li>
+          {!session && (
+            <>
+              <li className={styles.item}>
+                <Button href='/signup'>Signup</Button>
+              </li>
+              <li className={styles.item}>
+                <Button href='/login'>Login</Button>
+              </li>
+            </>
+          )}
+          {session && (
+            <>
+              <li className={styles.item}>
+                <Button href='/profile'>Profile</Button>
+              </li>
+              <li className={styles.item}>
+                <LogoutButton>Logout</LogoutButton>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </div>

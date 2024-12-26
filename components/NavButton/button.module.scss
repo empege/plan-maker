@@ -1,8 +1,16 @@
 .button {
   font-family: var(--font-bungee);
+  font-size: 16px;
   padding: 5px 12px;
   display: block;
   border-radius: 3px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    text-shadow: var(--golden) 1px 0 10px;
+  }
 }
 
 .active {
