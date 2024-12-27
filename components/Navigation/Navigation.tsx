@@ -8,10 +8,10 @@ const Navigation = async () => {
   const session = await getServerSession(authOptions)
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <nav className={styles.navigation}>
         <span className={styles.email}>ivan.mitov@hotmail.com</span>
-        <ul className={styles.wrapper}>
+        <ul className={styles.flex}>
           <li className={styles.item}>
             <Button href='/'>Projects</Button>
           </li>
@@ -27,6 +27,9 @@ const Navigation = async () => {
           )}
           {session && (
             <>
+              <li className={styles.item}>
+                <Button href='/create'>Create</Button>
+              </li>
               <li className={styles.item}>
                 <Button href='/profile'>Profile</Button>
               </li>

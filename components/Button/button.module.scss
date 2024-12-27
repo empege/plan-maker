@@ -1,0 +1,22 @@
+.button {
+  font-family: var(--font-bungee);
+  font-size: 16px;
+  padding: 5px 12px;
+  display: inline-block;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--red);
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.3s;
+  text-align: center;
+
+  &:hover {
+    text-shadow: var(--golden) 1px 0 10px;
+  }
+}
+
+.dark {
+  background-color: var(--black) !important;
+  color: var(--white);
+}

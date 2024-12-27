@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Bungee } from "next/font/google"
 import "./globals.scss"
+import styles from "./layout.module.scss"
 import Navigation from "@/components/Navigation/Navigation"
 
 const geistSans = Geist({
@@ -35,7 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${bungee.variable}`}
       >
         <Navigation />
-        {children}
+        <main className={styles.main}>{children}</main>
       </body>
     </html>
   )

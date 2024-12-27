@@ -1,0 +1,85 @@
+.loading {
+  position: relative;
+}
+
+.active {
+  svg {
+    animation: unspin 2s linear infinite;
+  }
+}
+
+.static {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  svg {
+    animation: spin 2s linear infinite;
+  }
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  12.5% {
+    transform: rotate(45deg) scale(1.1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+  }
+  37.5% {
+    transform: rotate(135deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  62.5% {
+    transform: rotate(225deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(270deg) scale(0.8);
+  }
+  87.5% {
+    transform: rotate(315deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes unspin {
+  0% {
+    transform: rotate(360deg) scale(1);
+  }
+  12.5% {
+    transform: rotate(315deg) scale(1.1);
+  }
+  25% {
+    transform: rotate(270deg) scale(1.2);
+  }
+  37.5% {
+    transform: rotate(225deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  62.5% {
+    transform: rotate(135deg) scale(0.9);
+  }
+  75% {
+    transform: rotate(90deg) scale(0.8);
+  }
+  87.5% {
+    transform: rotate(45deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}

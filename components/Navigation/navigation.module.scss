@@ -1,13 +1,18 @@
+.wrapper {
+  background-color: var(--green);
+  padding: 10px 20px;
+}
+
 .navigation {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: var(--green);
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
-.wrapper {
+.flex {
   display: flex;
 }
 
@@ -17,6 +22,6 @@
 
 .email {
   font-family: var(--font-bungee);
-  padding: 5px 12px;
+  padding: 5px 20px;
   display: block;
 }

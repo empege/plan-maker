@@ -1,6 +1,16 @@
 import { registerUser } from "@/app/actions"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/api/auth/[...nextauth]/route"
+import { redirect } from "next/navigation"
+import Button from "@/components/Button/Button"
 
-export default function SignupPage() {
+export default async function SignupPage() {
+  const session = await getServerSession(authOptions)
+
+  if (session) {
+    redirect("/")
+  }
+
   return (
     <div>
       <h1>Sign Up</h1>
@@ -17,7 +27,7 @@ export default function SignupPage() {
           <label htmlFor='password'>Password:</label>
           <input id='password' type='password' name='password' required />
         </div>
-        <button type='submit'>Sign Up</button>
+        <Button type='submit'>Sign up!</Button>
       </form>
     </div>
   )

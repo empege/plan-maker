@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ReactNode } from "react"
-import styles from "./button.module.scss"
+import styles from "./navbutton.module.scss"
 
 interface ButtonProps {
   href: string

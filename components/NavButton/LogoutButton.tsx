@@ -1,7 +1,7 @@
 "use client"
 
 import { signOut } from "next-auth/react"
-import styles from "./button.module.scss"
+import styles from "./navbutton.module.scss"
 import { ReactNode } from "react"
 
 interface LogoutButtonProps {
