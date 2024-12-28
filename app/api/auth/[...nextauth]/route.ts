@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
   ],
   session: {
     // By default this is the case, no need to add it, but not wrong to see it here :P
-    strategy: "jwt", // Možeš koristiti i "database" strategiju ako koristiš sessions u bazi
+    strategy: "jwt",
   },
   callbacks: {
     async jwt({ token, user }) {

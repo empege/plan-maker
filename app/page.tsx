@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/api/auth/[...nextauth]/route"
 import Button from "@/components/Button/Button"
 import styles from "./page.module.scss"
+import Projects from "@/components/Projects/Projects"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
@@ -15,6 +16,7 @@ export default async function Home() {
             Create project
           </Button>
         </div>
+        <Projects />
       </div>
     )
   }
@@ -26,6 +28,7 @@ export default async function Home() {
       <div>
         <Button href='/create'>Create project</Button>
       </div>
+      <Projects />
     </div>
   )
 }

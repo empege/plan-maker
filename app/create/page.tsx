@@ -1,10 +1,11 @@
 import Button from "@/components/Button/Button"
+import { createProject } from "@/app/actions"
 
 const CreatePage = () => {
   return (
     <div>
       <h1>Create a project</h1>
-      <form>
+      <form action={createProject}>
         <div>
           <label htmlFor='name'>Name:</label>
           <input id='name' type='text' name='name' required />
@@ -13,7 +14,7 @@ const CreatePage = () => {
           <label htmlFor='description'>Description:</label>
           <input id='description' type='description' name='description' />
         </div>
-        <Button type='submit'>Sign up!</Button>
+        <Button type='submit'>Create!</Button>
       </form>
     </div>
   )
