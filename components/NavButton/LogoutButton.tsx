@@ -6,14 +6,18 @@ import { ReactNode } from "react"
 
 interface LogoutButtonProps {
   children: ReactNode
+  dark?: boolean
 }
 
-const LogoutButton = ({ children }: LogoutButtonProps) => {
+const LogoutButton = ({ children, dark }: LogoutButtonProps) => {
   const handleLogout = async () => {
     await signOut({ callbackUrl: "/" })
   }
   return (
-    <button onClick={handleLogout} className={`${styles.button}`}>
+    <button
+      onClick={handleLogout}
+      className={`${styles.button} ${dark && styles.dark}`}
+    >
       {children}
     </button>
   )

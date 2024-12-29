@@ -1,20 +1,43 @@
 .section {
   padding: 40px 0px;
+  width: 100%;
+  max-width: 800px;
 
   h2 {
+    font-size: 24px;
     margin-bottom: 24px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
 
 .wrapper {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .article {
-  border: 1px solid black;
   border-radius: 4px;
-  padding: 10px 20px 15px;
+  padding: 8px 20px;
+  cursor: pointer;
+  background-color: var(--red);
+  color: var(--white);
+  text-align: left;
+  transition: 0.2s;
+
+  &:hover {
+    text-shadow: var(--golden) 1px 0 10px;
+    transform: scale(1.05);
+  }
 }

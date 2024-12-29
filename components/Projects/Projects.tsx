@@ -25,8 +25,10 @@ const Projects = async () => {
                 .map((project) => {
                   return (
                     <article className={styles.article} key={project.id}>
-                      <h2>{project.name}</h2>
-                      <h3>{project.description}</h3>
+                      <a href={`/project/${project.id}`}>
+                        <h3>{project.name}</h3>
+                        <p>{project.description}</p>
+                      </a>
                     </article>
                   )
                 })}
@@ -40,8 +42,10 @@ const Projects = async () => {
                 .map((project) => {
                   return (
                     <article className={styles.article} key={project.id}>
-                      <h2>{project.name}</h2>
-                      <h3>{project.description}</h3>
+                      <a href={`/project/${project.id}`}>
+                        <h3>{project.name}</h3>
+                        <p>{project.description}</p>
+                      </a>
                     </article>
                   )
                 })}
@@ -56,8 +60,10 @@ const Projects = async () => {
             {projects.map((project) => {
               return (
                 <article className={styles.article} key={project.id}>
-                  <h2>{project.name}</h2>
-                  <h3>{project.description}</h3>
+                  <a href={`/project/${project.id}`}>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                  </a>
                 </article>
               )
             })}

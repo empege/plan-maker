@@ -8,9 +8,10 @@
 - Add global button styling, don't reuse NavButton styles ✔️
 - Add loading component ✔️
 - For logged in users there will first be section showing their projects and below all other projects ✔️
-- Create project page [id]? (starter only)
+- Create project page [id]? (starter only) ✔️
 - Create profile page
 - Reset password, can I do it with email, even locally?
+- User can delete their project ✔️
 
 <br>
 

@@ -1,5 +1,5 @@
 import Button from "@/components/Button/Button"
-import { createProject } from "@/app/actions"
+import { createProject } from "@/app/actions/createProject"
 
 const CreatePage = () => {
   return (
