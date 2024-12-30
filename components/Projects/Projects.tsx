@@ -5,7 +5,6 @@ import { authOptions } from "@/api/auth/[...nextauth]/route"
 
 const Projects = async () => {
   const session = await getServerSession(authOptions)
-  console.log("session: ", session)
 
   const projects = await prisma.project.findMany({
     include: {

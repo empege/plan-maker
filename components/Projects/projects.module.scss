@@ -4,19 +4,19 @@
   max-width: 800px;
 
   h2 {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 24px;
-    text-align: center;
+    text-align: left;
   }
 
   h3 {
     font-size: 24px;
-    margin-bottom: 6px;
-    text-align: center;
+    margin-bottom: 0px;
+    text-align: left;
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -24,17 +24,16 @@
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .article {
   border-radius: 4px;
   padding: 8px 20px;
   cursor: pointer;
-  background-color: var(--red);
+  background-color: var(--dark-green);
   color: var(--white);
   text-align: left;
-  transition: 0.2s;
+  transition: 0.1s;
 
   &:hover {
     text-shadow: var(--golden) 1px 0 10px;

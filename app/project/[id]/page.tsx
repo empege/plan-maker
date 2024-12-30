@@ -10,8 +10,6 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
     },
   })
 
-  console.log(project)
-
   return (
     <div>
       <div className={styles.header}>

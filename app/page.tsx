@@ -13,7 +13,7 @@ export default async function Home() {
         <h1>Projects</h1>
         <div>
           <Button href='/login' dark>
-            Create project
+            Create a project
           </Button>
         </div>
         <Projects />
@@ -26,7 +26,7 @@ export default async function Home() {
       <h2>Welcome, {session.user?.name}!</h2>
       <h1>Projects</h1>
       <div>
-        <Button href='/create'>Create project</Button>
+        <Button href='/create'>Create a project</Button>
       </div>
       <Projects />
     </div>

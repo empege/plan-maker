@@ -9,9 +9,15 @@
 - Add loading component ✔️
 - For logged in users there will first be section showing their projects and below all other projects ✔️
 - Create project page [id]? (starter only) ✔️
-- Create profile page
+- Create profile page ✔️
 - Reset password, can I do it with email, even locally?
 - User can delete their project ✔️
+
+### What I learned from 26.12.2024. tasks:
+
+Better use route handlers than server actions - no FE validation, limited
+
+<br>
 
 <br>
 

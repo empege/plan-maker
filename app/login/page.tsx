@@ -76,6 +76,13 @@ export default function LoginPage() {
             Sign up!
           </Button>
         </div>
+        <br />
+        <div>
+          <p>Forgot your password?</p>
+          <Button href='/forgot' dark>
+            Reset here
+          </Button>
+        </div>
       </form>
     </div>
   )
