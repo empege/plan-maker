@@ -29,15 +29,15 @@ export async function POST(req: Request) {
     data: { password: hashedPassword },
   });
 
-  const transporter = nodemailer.createTransport<SMTPTransport.Options>({
+  const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
-    secure: false, // True samo za port 465
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-  });
+  } as SMTPTransport.Options);
 
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
@@ -45,10 +45,6 @@ export async function POST(req: Request) {
     subject: "Password Reset",
     text: `Your temporary password is: ${tempPassword}. Please log in and change it immediately.`,
   });
-
-  console.log('POSLATO!')
-  console.log('from: ', process.env.EMAIL_USER)
-  console.log('to: ', email)
 
   return NextResponse.json({
     message: "Success! If this email is registered, you will receive a reset link.",
