@@ -6,6 +6,7 @@
 
 - Edit project name and description ✔️
 - If logged in user can add items to the project
+  - Add "Add new" with plus sign at the bottom to add new elements
   - Title
   - Subtitle
   - Text
@@ -14,9 +15,13 @@
     - Image
     - Link (video)
     - Link (iframe?)
+    - Lists
+    - Text color for all items for user to choose
 - On any change the items change and update on the server
 - Only logged in user can click and change the items, or delete them
 - Drag and drop item to set its new possition? (maybe just change id for now)
+
+- About page - what is this project, why, how what works, etc
 
 <br>
 

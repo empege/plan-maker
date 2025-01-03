@@ -1,55 +1,23 @@
 "use client"
 
+import styles from "../project.module.scss"
+import Text from "../Elements/Text"
+import Title from "../Elements/Title"
+import Subtitle from "../Elements/Subtitle"
+import Checkbox from "../Elements/Checkbox"
+import Button from "@/components/Button/Button"
+import { MdDelete } from "react-icons/md"
+
 interface ElementRendererProps {
   id: string
   element: string
   text: string
   checked?: boolean | null
+  size?: number
 }
 
-const Title: React.FC<ElementRendererProps> = ({ id, element, text }) => {
-  return (
-    <div>
-      <h2>
-        {id} {element} {text}
-      </h2>
-    </div>
-  )
-}
-
-const Subtitle: React.FC<ElementRendererProps> = ({ id, element, text }) => {
-  return (
-    <div>
-      <h2>
-        {id} {element} {text}
-      </h2>
-    </div>
-  )
-}
-
-const Checkbox: React.FC<ElementRendererProps> = ({
-  id,
-  element,
-  text,
-  checked,
-}) => {
-  return (
-    <div>
-      <h2>
-        {id} {element} {text} {checked && "checked"}
-      </h2>
-    </div>
-  )
-}
-
-const Text: React.FC<ElementRendererProps> = ({ id, element, text }) => {
-  return (
-    <div>
-      <h2>
-        {id} {element} {text}
-      </h2>
-    </div>
-  )
+const Spacer: React.FC<ElementRendererProps> = ({ size = 1 }) => {
+  return <div style={{ height: `${size}px` }} className={styles.spacer}></div>
 }
 
 const ElementRenderer: React.FC<ElementRendererProps> = (
@@ -65,13 +33,24 @@ const ElementRenderer: React.FC<ElementRendererProps> = (
         return <Checkbox {...props} />
       case "text":
         return <Text {...props} />
+      case "spacer":
+        return <Spacer {...props} />
 
       default:
         break
     }
   }
 
-  return <div>{elementToUse()}</div>
+  return (
+    <div className={styles.element}>
+      {elementToUse()}{" "}
+      <div className={styles.actions}>
+        <Button>
+          <MdDelete />
+        </Button>
+      </div>
+    </div>
+  )
 }
 
 export default ElementRenderer

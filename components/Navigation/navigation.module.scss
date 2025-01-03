@@ -1,15 +1,55 @@
-.wrapper {
+.navigation {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
   background-color: var(--green);
   padding: 10px 20px;
 }
 
-.navigation {
+.bottom {
+  background-color: var(--dark-green);
+  padding: 0px 20px;
+  color: var(--white);
+  font-family: var(--font-bungee);
+  font-size: 12px;
+
+  & a {
+    font-size: 14px;
+  }
+}
+
+.container {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+.logo {
+  a {
+    position: relative;
+    padding: 0;
+    width: 55px;
+    height: 40px;
+  }
+  img {
+    transition: 0.2s;
+  }
+  &:hover img {
+    filter: drop-shadow(0 0 10px var(--golden));
+  }
+}
+
+.email {
+  transition: 0.2s;
+  &:hover {
+    text-shadow: var(--golden) 1px 0 10px;
+  }
 }
 
 .flex {
@@ -20,7 +60,7 @@
   list-style-type: none;
 }
 
-.email {
+.github {
   font-family: var(--font-bungee);
   padding: 5px 20px;
   display: block;

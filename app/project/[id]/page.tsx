@@ -26,6 +26,11 @@ const test = [
     id: "3",
   },
   {
+    element: "spacer",
+    id: "5",
+    size: 8,
+  },
+  {
     element: "text",
     text: "This is text",
     id: "4",

@@ -1,17 +1,22 @@
+// HEADER //
 .header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  margin-bottom: 60px;
   h1 {
     text-align: left;
     margin-bottom: 8px;
+    color: var(--dark-green);
+  }
+  p {
+    color: var(--dark-green);
   }
   form {
     margin: 0;
     width: 100%;
   }
 }
-
 .title {
   display: flex;
   flex-direction: column;
@@ -29,5 +34,137 @@
     &:last-child {
       font-size: 1em;
     }
+  }
+}
+
+// PROJECT //
+.element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  &:hover {
+    .actions {
+      display: flex;
+    }
+  }
+  * {
+    color: var(--black);
+  }
+  &:has(.checkbox input:checked) label {
+    text-decoration: line-through;
+  }
+  &:has(.spacer):hover .spacer {
+    transition: background-color 0.2s ease;
+    background-color: var(--dark-green);
+    border-radius: 4px;
+  }
+}
+
+.actions {
+  display: none;
+  margin-left: 20px;
+  button {
+    display: flex;
+    background-color: var(--dark-green);
+    &:hover {
+      background-color: var(--red);
+    }
+    svg * {
+      color: var(--white);
+    }
+  }
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  flex: 1;
+  margin-bottom: 0px;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  flex: 1;
+  margin-bottom: 0px;
+}
+
+.spacer {
+  width: 100%;
+  margin-bottom: 0px;
+  padding-bottom: 16px;
+  &--line {
+    border-bottom: 2px solid var(--green);
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  min-height: 26px;
+
+  & input[type="checkbox"] {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    border: 2px solid var(--green);
+    border-radius: 4px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    &:checked {
+      background-color: var(--dark-green);
+      border-color: transparent;
+    }
+
+    &:checked::after {
+      content: "✔";
+      color: var(--white);
+      font-size: 16px;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:hover {
+      border-color: var(--dark-green);
+    }
+  }
+
+  div {
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    user-select: none;
+
+    &:hover {
+      color: var(--dark-green);
+    }
+  }
+}
+
+.text {
+  width: 100%;
+  padding: 10px 32px;
+  font-size: 16px;
+  line-height: 1.5;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 4px;
+  outline: none;
+  resize: vertical;
+  caret-color: var(--green);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  background-color: rgba(32, 178, 170, 0.1);
+
+  &:focus {
+    border-bottom-color: var(--dark-green);
   }
 }
