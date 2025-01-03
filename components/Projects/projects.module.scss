@@ -28,12 +28,18 @@
 
 .article {
   border-radius: 4px;
-  padding: 8px 20px;
   cursor: pointer;
   background-color: var(--dark-green);
   color: var(--white);
   text-align: left;
   transition: 0.1s;
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding: 8px 20px;
+    border-radius: 4px;
+  }
 
   &:hover {
     text-shadow: var(--golden) 1px 0 10px;

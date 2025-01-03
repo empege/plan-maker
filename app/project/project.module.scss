@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  h1 {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+  form {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  input {
+    padding: 0;
+    caret-color: var(--green);
+    padding: 10px 20px;
+    width: 100%;
+    &:first-child {
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 60px;
+      font-weight: 700;
+    }
+    &:last-child {
+      font-size: 1em;
+    }
+  }
+}

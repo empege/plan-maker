@@ -1,6 +1,28 @@
 # All plans and tasks for this project
 
-## Prisma work and first components
+## Edit project
+
+### 01.01.2025.
+
+- Edit project name and description ✔️
+- If logged in user can add items to the project
+  - Title
+  - Subtitle
+  - Text
+  - Checkbox with text
+  - After
+    - Image
+    - Link (video)
+    - Link (iframe?)
+- On any change the items change and update on the server
+- Only logged in user can click and change the items, or delete them
+- Drag and drop item to set its new possition? (maybe just change id for now)
+
+<br>
+
+<br>
+
+## Login, SMTP, password reset using email...
 
 ### 26.12.2024.
 
@@ -10,7 +32,7 @@
 - For logged in users there will first be section showing their projects and below all other projects ✔️
 - Create project page [id]? (starter only) ✔️
 - Create profile page ✔️
-- Reset password, can I do it with email, even locally?
+- Reset password, can I do it with email, even locally? ✔️
 - User can delete their project ✔️
 
 ### What I learned from 26.12.2024. tasks:
@@ -34,7 +56,7 @@ Better use route handlers than server actions - no FE validation, limited
   - If user not logged in - take him to login page ✔️
   - Login page will also have a "Not a user - sign up here" button ✔️
   - For logged in users there will be "My Projects" tab in the aside underwhich all projects of that user will be listed - they can click on them to go to that project ❌
-- Clicking on any project in the home page takes you to the project page. Only logged in user that created this specific project can edit/delete etc
+- Clicking on any project in the home page takes you to the project page. Only logged in user that created this specific project can edit/delete etc ✔️
 
 ### What I learned from 20.12.2024. tasks:
 
@@ -49,7 +71,7 @@ JWT - JSON Web Tokens vs Server Side Session. SSS is creating and storing some h
 - First commit :) ✔️
 - Delete all Nextjs starting code ✔️
 - Create simple component (form) that creates "New Project" ✔️
-  - User (in future logged in only) can click on "New Project" to create a project for their plans. This will be visible to everyone for now, later user can choose whether it's private or public, but only logged in users can add, edit, update and delete THEIR projects.
+  - User (in future logged in only) can click on "New Project" to create a project for their plans. This will be visible to everyone for now, later user can choose whether it's private or public, but only logged in users can add, edit, update and delete THEIR projects. ❌
 - Research how to setup MySQL with Nextjs project ✔️
 - Set up MySQL with Nextjs ✔️
   - Add new user also this way? ✔️
