@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef } from "react"
 import styles from "../project.module.scss"
 
-interface ElementRendererProps {
+interface ElementProps {
   id: string
   text: string
   checked?: boolean | null
 }
 
-const Checkbox: React.FC<ElementRendererProps> = ({ id, text, checked }) => {
+const Checkbox: React.FC<ElementProps> = ({ id, text, checked }) => {
   const [value, setValue] = useState(text)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = (e: React.KeyboardEvent<HTMLDivElement>) => {

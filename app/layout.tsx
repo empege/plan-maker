@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono, Bungee } from "next/font/google"
 import "./globals.scss"
-import styles from "./layout.module.scss"
+import styles from "./page.module.scss"
 import Navigation from "@/components/Navigation/Navigation"
 
 const geistSans = Geist({

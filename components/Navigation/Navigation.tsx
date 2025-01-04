@@ -1,8 +1,8 @@
-import Button from "@/components/NavButton/NavButton"
+import Button from "@/components/Navigation/NavButton/NavButton"
 import styles from "./navigation.module.scss"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/api/auth/[...nextauth]/route"
-import LogoutButton from "../NavButton/LogoutButton"
+import LogoutButton from "./NavButton/LogoutButton"
 
 const Navigation = async () => {
   const session = await getServerSession(authOptions)

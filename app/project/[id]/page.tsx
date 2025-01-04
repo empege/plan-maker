@@ -8,7 +8,15 @@ import HeaderReadOnly from "../readOnly/Header"
 import ElementRenderer from "../isOwner/ElementRenderer"
 import ElementRendererReadOnly from "../readOnly/ElementRenderer"
 
-const test = [
+interface ElementRendererProps {
+  element: "title" | "subtitle" | "checkbox" | "spacer" | "text"
+  id: string
+  text?: string
+  checked?: boolean
+  size?: number
+}
+
+const test: ElementRendererProps[] = [
   {
     element: "title",
     text: "This is a title",

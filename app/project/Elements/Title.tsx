@@ -3,12 +3,12 @@
 import styles from "../project.module.scss"
 import { useState, useEffect, useRef } from "react"
 
-interface ElementRendererProps {
+interface ElementProps {
   id: string
   text: string
 }
 
-const Title: React.FC<ElementRendererProps> = ({ id, text }) => {
+const Title: React.FC<ElementProps> = ({ id, text }) => {
   const [value, setValue] = useState(text)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = (e: React.KeyboardEvent<HTMLDivElement>) => {
