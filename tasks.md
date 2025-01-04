@@ -21,7 +21,7 @@
 - Only logged in user can click and change the items, or delete them
 - Drag and drop item to set its new possition? (maybe just change id for now)
 
-- About page - what is this project, why, how what works, etc
+- About page - what is this project, why, how what works, etc ✔️
 
 <br>
 

@@ -3,8 +3,6 @@ import styles from "./navigation.module.scss"
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "@/api/auth/[...nextauth]/route"
 import LogoutButton from "../NavButton/LogoutButton"
-import Image from "next/image"
-import logo from "../../public/logo.png"
 
 const Navigation = async () => {
   const session = await getServerSession(authOptions)
@@ -15,7 +13,8 @@ const Navigation = async () => {
         <div className={styles.container}>
           <div className={styles.logo}>
             <Button href='https://ivanmitov.com' target='_blank'>
-              <Image src={logo} layout='fill' alt='Logo' />
+              <span>Ivan</span>
+              <span>Mitov</span>.com
             </Button>
           </div>
           <ul className={styles.flex}>
@@ -51,9 +50,12 @@ const Navigation = async () => {
       <div className={styles.bottom}>
         <div className={styles.container}>
           <span className={styles.email}>ivan.mitov@hotmail.com</span>
-          <Button href='https://github.com/empege/plan-maker' target='_blank'>
-            Check Code
-          </Button>
+          <div className={styles.flex}>
+            <Button href='/about'>About</Button>
+            <Button href='https://github.com/empege/plan-maker' target='_blank'>
+              Check Code
+            </Button>
+          </div>
         </div>
       </div>
     </nav>

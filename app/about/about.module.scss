@@ -1,0 +1,23 @@
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+
+  * {
+    margin-bottom: 26px;
+  }
+
+  h1 {
+    margin-bottom: 40px;
+  }
+  h2 {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  a {
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+  p {
+    line-height: 1.5;
+  }
+}

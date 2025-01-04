@@ -1,3 +1,19 @@
+# Plan Maker ☑️
+
+### Plan Maker is a website where you can create small _projects_ to track your tasks, and see other peoples progress on theirs.
+
+Code can be viewed and reused ([GitHub](https://github.com/empege/plan-maker)). You can also see **tasks.md** file to see how I planned each step and what I learned while creating this web app.
+
+To have it working locally, other than cloning, doing npm install and having the necessary setup ready (like node etc), you have to setup a base, SMTP and your .env file. I used MySQL and Prisma for the base and personal cPanel email, as I never learned this before so it was a nice opportunity.
+
+Locally or live, you can signup, login, reset password (email will be sent to you), create projects, edit project header, add items to projects like title, subtitle, checkbox etc, or you can edit any element by clicking on it!
+
+Only password is encrypted, as anything else related to projects creation is visible to others anyways, so that info is not encrypted. But, you can see this in the code itself.
+
+#### Created by [Ivan Mitov](https://www.ivanmitov.com) for the purpose of learning Next.js (app router)
+
+### Below is the usual Next.js README.md 👇
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
