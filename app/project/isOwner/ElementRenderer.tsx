@@ -23,8 +23,8 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
   element,
   id,
   text = "",
-  checked,
-  size = 0,
+  checked = false,
+  size = 1,
 }) => {
   const [elementToUse, setElementToUse] = useState<React.JSX.Element | null>(
     null

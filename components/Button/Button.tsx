@@ -12,6 +12,7 @@ interface ButtonProps {
   target?: "_blank" | "_self" | "_parent" | "_top" | string
   handleClick?: () => void
   dark?: boolean
+  green?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,6 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   target = "_self",
   handleClick,
   dark = false,
+  green = false,
 }) => {
   const pathname = usePathname()
 
@@ -29,7 +31,9 @@ const Button: React.FC<ButtonProps> = ({
       <button
         onClick={handleClick}
         type={type}
-        className={`${styles.button} ${dark && styles.dark}`}
+        className={`${styles.button} ${dark && styles.dark} ${
+          green && styles.green
+        }`}
       >
         {children}
       </button>
@@ -42,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       target={target}
       className={`${styles.button} ${pathname === href ? styles.active : ""} ${
         dark && styles.dark
-      }`}
+      } ${green && styles.green}`}
     >
       {children}
     </Link>

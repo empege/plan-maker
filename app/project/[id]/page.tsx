@@ -7,43 +7,7 @@ import Header from "../isOwner/Header"
 import HeaderReadOnly from "../readOnly/Header"
 import ElementRenderer from "../isOwner/ElementRenderer"
 import ElementRendererReadOnly from "../readOnly/ElementRenderer"
-
-interface ElementRendererProps {
-  element: "title" | "subtitle" | "checkbox" | "spacer" | "text"
-  id: string
-  text?: string
-  checked?: boolean
-  size?: number
-}
-
-const test: ElementRendererProps[] = [
-  {
-    element: "title",
-    text: "This is a title",
-    id: "1",
-  },
-  {
-    element: "subtitle",
-    text: "This is a subtitle",
-    id: "2",
-  },
-  {
-    element: "checkbox",
-    text: "This is a checkbox",
-    checked: false,
-    id: "3",
-  },
-  {
-    element: "spacer",
-    id: "5",
-    size: 8,
-  },
-  {
-    element: "text",
-    text: "This is text",
-    id: "4",
-  },
-]
+import AddElement from "../AddElement"
 
 const ProjectPage = async ({ params }: { params: { id: string } }) => {
   const { id } = await params
@@ -53,6 +17,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
     },
     include: {
       user: true,
+      elements: true,
     },
   })
 
@@ -72,10 +37,20 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
           projectId={id}
         />
         <div className={styles.main}>
-          {test.map((current) => (
-            <ElementRenderer key={current.id} {...current} />
+          {project.elements.map(({ element, id, text, size, checked }) => (
+            <ElementRenderer
+              key={id}
+              id={id}
+              text={text || undefined}
+              size={size || undefined}
+              checked={checked || undefined}
+              element={
+                element as "title" | "subtitle" | "checkbox" | "text" | "spacer"
+              }
+            />
           ))}
         </div>
+        <AddElement projectId={id} />
       </div>
     )
   }
@@ -87,7 +62,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
       </div>
       <div className={styles.main}>
         <div className={styles.main}>
-          {test.map((current) => (
+          {project.elements.map((current) => (
             <ElementRendererReadOnly key={current.id} {...current} />
           ))}
         </div>

@@ -7,7 +7,7 @@ interface ElementProps {
   size: number
 }
 
-const Spacer: React.FC<ElementProps> = ({ id, size = 1 }) => {
+const Spacer: React.FC<ElementProps> = ({ id, size }) => {
   return <div style={{ height: `${size}px` }} className={styles.spacer}></div>
 }
 

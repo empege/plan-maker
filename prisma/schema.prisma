@@ -18,17 +18,32 @@ model User {
   name      String
   email     String    @unique
   password  String
-  projects  Project[] 
+  projects  Project[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
 
 model Project {
   id        String    @id @default(uuid())
-  description String
   name      String
-  userId    String           
+  description String
+  userId    String
   user      User      @relation(fields: [userId], references: [id])
+  elements  Element[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
+
+model Element {
+  id        String    @id @default(uuid())
+  element   String    
+  text      String?   
+  size      Int?      
+  checked   Boolean?  @default(false) 
+  projectId String    
+  project   Project   @relation(fields: [projectId], references: [id])
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+

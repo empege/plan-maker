@@ -192,3 +192,120 @@
     border-bottom-color: var(--dark-green);
   }
 }
+
+// ADD NEW ELEMENT //
+.add {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.openBtn,
+.closeBtn {
+  display: inline-block;
+  &:hover {
+    svg {
+      transition: 0.2s;
+      filter: drop-shadow(0 0 10px var(--golden));
+    }
+  }
+  button {
+    padding: 10px 20px;
+  }
+  svg {
+    font-size: 30px;
+  }
+  h4 {
+    font-family: var(--font-geist-sans);
+    font-weight: 400;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  button {
+    padding: 5px 10px;
+    display: flex;
+  }
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.formModal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(#1a1a1a, 0.8);
+}
+
+.form {
+  background-color: var(--dark-green);
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  color: var(--white);
+  gap: 0px;
+
+  h3 {
+    font-weight: 400;
+    margin-bottom: 24px;
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px 20px 10px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--dark-green);
+    background-color: var(--white);
+    color: var(--black);
+    font-family: var(--font-geist-sans);
+    font-size: 16px;
+    margin-bottom: 24px;
+    outline: none;
+    &:focus {
+      border-color: var(--golden);
+      box-shadow: 0 0 5px var(--golden);
+    }
+  }
+  select {
+    cursor: pointer;
+  }
+
+  button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: var(--green);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-family: var(--font-geist-sans);
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: var(--dark-green);
+    }
+  }
+}
