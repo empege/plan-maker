@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "../project.module.scss"
-import DeleteForm from "../isOwner/DeleteForm"
+import DeleteProjectForm from "./DeleteProjectForm"
 import { useState } from "react"
 import Button from "@/components/Button/Button"
 import { useRouter } from "next/navigation"
@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ name, description, projectId }) => {
             <Button handleClick={handleEdit}>Edit</Button>
             <br />
             <br />
-            <DeleteForm id={projectId} />
+            <DeleteProjectForm id={projectId} />
           </div>
         </>
       )}

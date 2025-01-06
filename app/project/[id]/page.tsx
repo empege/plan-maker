@@ -17,7 +17,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
     },
     include: {
       user: true,
-      elements: true,
+      elements: { orderBy: { order: "asc" } },
     },
   })
 

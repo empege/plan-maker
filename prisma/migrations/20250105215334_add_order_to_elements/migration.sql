@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `element` ADD COLUMN `order` INTEGER NOT NULL DEFAULT 0;

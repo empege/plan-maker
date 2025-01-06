@@ -36,14 +36,16 @@ model Project {
 
 model Element {
   id        String    @id @default(uuid())
-  element   String    
+  element   String
   text      String?   
   size      Int?      
-  checked   Boolean?  @default(false) 
-  projectId String    
+  checked   Boolean?  @default(false)
+  order     Int       @default(0)
+  projectId String
   project   Project   @relation(fields: [projectId], references: [id])
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 }
+
 
 

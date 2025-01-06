@@ -5,8 +5,10 @@ import { LuCirclePlus } from "react-icons/lu"
 import { IoClose } from "react-icons/io5"
 import styles from "./project.module.scss"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 const AddElement = ({ projectId }: { projectId: string }) => {
+  const router = useRouter()
   const [open, setOpen] = useState(false)
   const [selectedOption, setSelectedOption] = useState("")
   const [formData, setFormData] = useState({
@@ -15,14 +17,12 @@ const AddElement = ({ projectId }: { projectId: string }) => {
   })
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log("handleOptionChange", formData)
     setSelectedOption(e.target.value)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => {
-      console.log(prev, name, value)
       return {
         ...prev,
         [name]: value,
@@ -51,12 +51,11 @@ const AddElement = ({ projectId }: { projectId: string }) => {
     })
 
     if (!res.ok) {
-      console.error("Failed to add element FE")
       return
     }
 
-    console.log("Element added successfully")
-    setOpen(false)
+    handleClose()
+    router.refresh()
   }
 
   const resetForm = () => {
@@ -87,6 +86,7 @@ const AddElement = ({ projectId }: { projectId: string }) => {
               placeholder={`Enter ${selectedOption}...`}
               required
             />
+            <Button type='submit'>Add</Button>
           </>
         )
       case "spacer":
@@ -102,6 +102,7 @@ const AddElement = ({ projectId }: { projectId: string }) => {
               placeholder='Enter size...'
               min='0'
             />
+            <Button type='submit'>Add</Button>
           </>
         )
       default:

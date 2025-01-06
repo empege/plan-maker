@@ -5,7 +5,6 @@ import bcrypt from "bcryptjs";
 export const PUT = async (req: Request) => {
   try {
     const { name, password, email } = await req.json();
-    console.log(name, password, email);
 
     if (!name || !password) {
       return NextResponse.json({ error: "Name and password are required" }, { status: 400 });

@@ -13,6 +13,10 @@ export const DELETE = async (req: NextRequest, { params }: { params: { id: strin
 
   const { id } = await params
 
+  if (!id) {
+    return NextResponse.json({ error: "Project ID is required" }, { status: 400 });
+  }
+
   try {
     const project = await prisma.project.findUnique({
       where: {
@@ -27,6 +31,10 @@ export const DELETE = async (req: NextRequest, { params }: { params: { id: strin
     if (project.userId !== session.user.id) {
       return NextResponse.json({ error: "Unauthorized - not creator user" }, { status: 401 });
     }
+
+    await prisma.element.deleteMany({
+      where: { projectId: id },
+    });
 
     await prisma.project.delete({
       where: {

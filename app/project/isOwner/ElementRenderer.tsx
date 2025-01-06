@@ -10,6 +10,7 @@ import Button from "@/components/Button/Button"
 import { MdDelete } from "react-icons/md"
 import { useEffect, useState } from "react"
 import Loader from "../Elements/Loader"
+import { useRouter } from "next/navigation"
 
 interface ElementRendererProps {
   element: "title" | "subtitle" | "checkbox" | "text" | "spacer"
@@ -26,9 +27,28 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
   checked = false,
   size = 1,
 }) => {
+  const router = useRouter()
   const [elementToUse, setElementToUse] = useState<React.JSX.Element | null>(
     null
   )
+
+  const handleElementDelete = async () => {
+    try {
+      const res = await fetch(`/api/project/${id}/element`, {
+        method: "DELETE",
+      })
+
+      if (!res.ok) {
+        console.error("Failed to delete element")
+        return
+      }
+
+      console.log("Element deleted successfully")
+      router.refresh()
+    } catch (error) {
+      console.error("Error deleting element:", error)
+    }
+  }
 
   useEffect(() => {
     const getElement = () => {
@@ -56,7 +76,7 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
       {elementToUse || <Loader />}{" "}
       {elementToUse && (
         <div className={styles.actions}>
-          <Button>
+          <Button handleClick={handleElementDelete}>
             <MdDelete />
           </Button>
         </div>
