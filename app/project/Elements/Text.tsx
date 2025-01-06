@@ -6,9 +6,10 @@ import { useState, useEffect, useRef } from "react"
 interface ElementProps {
   id: string
   text: string
+  color?: "black" | "white" | "red" | "green" | "dark-green" | "golden"
 }
 
-const Text: React.FC<ElementProps> = ({ id, text }) => {
+const Text: React.FC<ElementProps> = ({ id, text, color }) => {
   const [value, setValue] = useState(text)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -24,7 +25,7 @@ const Text: React.FC<ElementProps> = ({ id, text }) => {
   return (
     <div
       ref={ref}
-      className={styles.text}
+      className={`${styles.text} ${color}`}
       id={id}
       contentEditable
       suppressContentEditableWarning={true}

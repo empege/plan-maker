@@ -6,9 +6,10 @@ import { useState, useEffect, useRef } from "react"
 interface ElementProps {
   id: string
   text: string
+  color?: "black" | "white" | "red" | "green" | "dark-green" | "golden"
 }
 
-const Subtitle: React.FC<ElementProps> = ({ id, text }) => {
+const Subtitle: React.FC<ElementProps> = ({ id, text, color }) => {
   const [value, setValue] = useState(text)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -23,7 +24,7 @@ const Subtitle: React.FC<ElementProps> = ({ id, text }) => {
 
   return (
     <h3
-      className={styles.subtitle}
+      className={`${styles.subtitle} ${color}`}
       ref={ref}
       id={id}
       contentEditable

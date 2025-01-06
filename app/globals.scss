@@ -1,6 +1,4 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
   --red: #e63946;
   --green: #20b2aa;
   --dark-green: #157a73;
@@ -9,10 +7,30 @@
   --black: #1a1a1a;
 }
 
+.black {
+  color: var(--black) !important;
+}
+.white {
+  color: var(--white) !important;
+}
+.red {
+  color: var(--red) !important;
+}
+.green {
+  color: var(--green) !important;
+}
+.dark-green {
+  color: var(--dark-green) !important;
+}
+.golden {
+  color: var(--golden) !important;
+}
+
+// TODO: Setup later
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --black: #ededed;
   }
 }
 
@@ -24,8 +42,8 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--black);
+  background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -67,7 +85,7 @@ form {
 
   input {
     padding: 10px;
-    border: 1px solid var(--foreground);
+    border: 1px solid var(--black);
     border-radius: 5px;
     width: 300px;
     margin-bottom: 10px;

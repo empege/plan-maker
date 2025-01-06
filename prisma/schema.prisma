@@ -35,17 +35,20 @@ model Project {
 }
 
 model Element {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   element   String
-  text      String?   
-  size      Int?      
-  checked   Boolean?  @default(false)
-  order     Int       @default(0)
+  text      String?  
+  size      Int?     
+  checked   Boolean? @default(false)
   projectId String
-  project   Project   @relation(fields: [projectId], references: [id])
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  project   Project  @relation(fields: [projectId], references: [id])
+  order     Int
+  color     String?
+  line      Boolean? @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
+
 
 
 

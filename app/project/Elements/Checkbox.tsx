@@ -7,9 +7,10 @@ interface ElementProps {
   id: string
   text: string
   checked?: boolean | null
+  color?: "black" | "white" | "red" | "green" | "dark-green" | "golden"
 }
 
-const Checkbox: React.FC<ElementProps> = ({ id, text, checked }) => {
+const Checkbox: React.FC<ElementProps> = ({ id, text, checked, color }) => {
   const [value, setValue] = useState(text)
   const ref = useRef<HTMLDivElement>(null)
   const handleChange = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -29,6 +30,7 @@ const Checkbox: React.FC<ElementProps> = ({ id, text, checked }) => {
         ref={ref}
         id={id}
         contentEditable
+        className={color}
         suppressContentEditableWarning={true}
         onInput={handleChange}
       />

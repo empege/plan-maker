@@ -19,6 +19,8 @@ interface ElementRendererProps {
   text?: string
   checked?: boolean
   size?: number
+  color?: "black" | "white" | "red" | "green" | "dark-green" | "golden"
+  line?: boolean
 }
 
 const ElementRenderer: React.FC<ElementRendererProps> = ({
@@ -28,6 +30,8 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
   text = "",
   checked = false,
   size = 1,
+  color,
+  line,
 }) => {
   const router = useRouter()
   const [elementToUse, setElementToUse] = useState<React.JSX.Element | null>(
@@ -88,30 +92,34 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
     const getElement = () => {
       switch (element) {
         case "title":
-          return <Title id={id} text={text} />
+          return <Title id={id} text={text} color={color} />
         case "subtitle":
-          return <Subtitle id={id} text={text} />
+          return <Subtitle id={id} text={text} color={color} />
         case "checkbox":
-          return <Checkbox id={id} checked={checked} text={text} />
+          return (
+            <Checkbox id={id} checked={checked} text={text} color={color} />
+          )
         case "text":
-          return <Text id={id} text={text} />
+          return <Text id={id} text={text} color={color} />
         case "spacer":
-          return <Spacer id={id} size={size} />
+          return <Spacer id={id} size={size} color={color} line={line} />
 
         default:
           return <p>Invalid element type</p>
       }
     }
     setElementToUse(getElement())
-  }, [element, id, text, checked, size])
+  }, [element, id, text, checked, size, line, color])
 
   return (
     <div className={styles.element}>
       {elementToUse || <Loader />}{" "}
       {elementToUse && (
         <div className={styles.actions}>
-          <div>Current order: {order}</div>
           <form onSubmit={handleOrderChange}>
+            <span>
+              Order: <b>{order}</b>
+            </span>
             <label htmlFor={`order-${id}`}>New order:</label>
             <input
               type='number'
@@ -122,7 +130,6 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
             />
             <Button green type='submit'>
               Change order
-              <MdEdit />
             </Button>
           </form>
           <Button handleClick={handleElementDelete}>

@@ -14,12 +14,22 @@ const AddElement = ({ projectId }: { projectId: string }) => {
   const [formData, setFormData] = useState({
     text: "",
     size: 0,
+    color: "",
+    line: false,
   })
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value)
   }
-
+  const handleLineCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: checked,
+      }
+    })
+  }
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData((prev) => {
@@ -29,19 +39,27 @@ const AddElement = ({ projectId }: { projectId: string }) => {
       }
     })
   }
+  const handleColorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      color: e.target.value,
+    }))
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    const dataToSend: Record<string, string | number> = {
+    const dataToSend: Record<string, string | number | boolean> = {
       element: selectedOption,
     }
     if (["title", "subtitle", "text", "checkbox"].includes(selectedOption)) {
       dataToSend.text = formData.text
+      dataToSend.color = formData.color
     } else if (selectedOption === "spacer") {
       dataToSend.size = formData.size
+      dataToSend.color = formData.color
+      dataToSend.line = formData.line
     }
-
     const res = await fetch(`/api/project/${projectId}/element`, {
       method: "POST",
       headers: {
@@ -60,7 +78,7 @@ const AddElement = ({ projectId }: { projectId: string }) => {
 
   const resetForm = () => {
     setSelectedOption("")
-    setFormData({ text: "", size: 0 })
+    setFormData({ text: "", size: 0, color: "", line: false })
   }
 
   const handleClose = () => {
@@ -86,6 +104,10 @@ const AddElement = ({ projectId }: { projectId: string }) => {
               placeholder={`Enter ${selectedOption}...`}
               required
             />
+            <ColorForm
+              color={formData.color}
+              handleColorChange={handleColorChange}
+            />
             <Button type='submit'>Add</Button>
           </>
         )
@@ -101,6 +123,17 @@ const AddElement = ({ projectId }: { projectId: string }) => {
               onChange={handleInputChange}
               placeholder='Enter size...'
               min='0'
+            />
+            <label htmlFor='line'>Line:</label>
+            <input
+              type='checkbox'
+              id='line'
+              name='line'
+              onChange={handleLineCheckboxChange}
+            />
+            <ColorForm
+              color={formData.color}
+              handleColorChange={handleColorChange}
             />
             <Button type='submit'>Add</Button>
           </>
@@ -151,6 +184,33 @@ const AddElement = ({ projectId }: { projectId: string }) => {
         </div>
       )}
     </div>
+  )
+}
+
+const ColorForm = ({
+  color,
+  handleColorChange,
+}: {
+  color: string
+  handleColorChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+}) => {
+  return (
+    <>
+      <label htmlFor='text-color'>Text color:</label>
+      <select
+        name='text-color'
+        id='text-color'
+        value={color}
+        onChange={handleColorChange}
+      >
+        <option value='black'>Black</option>
+        <option value='white'>White</option>
+        <option value='red'>Red</option>
+        <option value='green'>Green</option>
+        <option value='dark-green'>Dark green</option>
+        <option value='golden'>Golden</option>
+      </select>
+    </>
   )
 }
 

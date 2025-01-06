@@ -38,7 +38,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
         />
         <div className={styles.main}>
           {project.elements.map(
-            ({ element, id, order, text, size, checked }) => (
+            ({ element, id, order, text, size, checked, color, line }) => (
               <ElementRenderer
                 key={id}
                 id={id}
@@ -46,6 +46,16 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
                 text={text || undefined}
                 size={size || undefined}
                 checked={checked || undefined}
+                line={line || false}
+                color={
+                  color as
+                    | "black"
+                    | "white"
+                    | "red"
+                    | "green"
+                    | "dark-green"
+                    | "golden"
+                }
                 element={
                   element as
                     | "title"

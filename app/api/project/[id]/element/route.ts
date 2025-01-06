@@ -19,7 +19,7 @@ export async function POST(
       );
     }
 
-    const { element, text, size } = body;
+    const { element, text, size, color, line } = body;
 
     if (!element) {
       return NextResponse.json(
@@ -38,7 +38,7 @@ export async function POST(
 
     const parsedSize = element === "spacer" ? parseInt(size, 10) : null;
 
-    if (element === "spacer" && (!parsedSize || isNaN(parsedSize) || parsedSize < 0)) {
+    if (element === "spacer" && (parsedSize === null || isNaN(parsedSize) || parsedSize < 0)) {
       return NextResponse.json(
         { error: "Size must be a valid non-negative number" },
         { status: 400 }
@@ -55,6 +55,8 @@ export async function POST(
         checked: element === "checkbox" ? false : null,
         projectId,
         order,
+        color: color || "black",
+        line: element === "spacer" ? !!line : false
       },
     });
 
@@ -75,7 +77,7 @@ export const DELETE = async (
   req: Request,
   { params }: { params: { id: string } }
 ) => {
-  const { id } = params;
+  const { id } = await params;
 
   if (!id) {
     return NextResponse.json(

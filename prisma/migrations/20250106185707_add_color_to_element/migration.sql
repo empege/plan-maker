@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `element` ADD COLUMN `color` VARCHAR(191) NULL,
+    ALTER COLUMN `order` DROP DEFAULT;

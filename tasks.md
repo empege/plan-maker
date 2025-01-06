@@ -5,23 +5,28 @@
 ### 01.01.2025.
 
 - Edit project name and description ✔️
-- If logged in user can add items to the project
-  - Add "Add new" with plus sign at the bottom to add new elements
-  - Title
-  - Subtitle
-  - Text
-  - Checkbox with text
+- If logged in user can add items to the project ✔️
+  - Add "Add new" with plus sign at the bottom to add new elements ✔️
+  - Title ✔️
+  - Subtitle ✔️
+  - Text ✔️
+  - Checkbox with text ✔️
   - After
     - Image
     - Link (video)
     - Link (iframe?)
     - Lists
-    - Text color for all items for user to choose
+    - Text color for all items for user to choose ✔️
+    - Add line to spacer ✔️
 - On any change the items change and update on the server
-- Only logged in user can click and change the items, or delete them
+- Only logged in user can click and change the items, or delete them ✔️
 - Drag and drop item to set its new possition? (maybe just change id for now)
 
 - About page - what is this project, why, how what works, etc ✔️
+
+### What I learned from 01.01.2025. tasks:
+
+https://dndkit.com/ for drag and drop in react, other libs like https://www.npmjs.com/package/react-beautiful-dnd or https://www.npmjs.com/package/@hello-pangea/dnd not working anymore with React 18+
 
 <br>
 
