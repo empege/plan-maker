@@ -65,11 +65,13 @@
 .actions {
   display: none;
   margin-left: 20px;
+  gap: 10px;
+  align-items: center;
   button {
     display: flex;
-    background-color: var(--dark-green);
     &:hover {
-      background-color: var(--red);
+      transition: 0.2s;
+      filter: drop-shadow(0 0 10px var(--golden));
     }
     svg * {
       color: var(--white);

@@ -7,7 +7,7 @@ import Subtitle from "../Elements/Subtitle"
 import Checkbox from "../Elements/Checkbox"
 import Spacer from "../Elements/Spacer"
 import Button from "@/components/Button/Button"
-import { MdDelete } from "react-icons/md"
+import { MdDelete, MdEdit } from "react-icons/md"
 import { useEffect, useState } from "react"
 import Loader from "../Elements/Loader"
 import { useRouter } from "next/navigation"
@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation"
 interface ElementRendererProps {
   element: "title" | "subtitle" | "checkbox" | "text" | "spacer"
   id: string
+  order: number
   text?: string
   checked?: boolean
   size?: number
@@ -23,6 +24,7 @@ interface ElementRendererProps {
 const ElementRenderer: React.FC<ElementRendererProps> = ({
   element,
   id,
+  order,
   text = "",
   checked = false,
   size = 1,
@@ -47,6 +49,38 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
       router.refresh()
     } catch (error) {
       console.error("Error deleting element:", error)
+    }
+  }
+
+  const handleOrderChange = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+    const newOrder = Number(formData.get("order"))
+
+    if (isNaN(newOrder) || newOrder < 1) {
+      console.error("Invalid order value")
+      return
+    }
+
+    try {
+      const res = await fetch(`/api/project/${id}/element`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ order: newOrder }),
+      })
+
+      if (!res.ok) {
+        console.error("Failed to change element order")
+        return
+      }
+
+      console.log("Element order changed successfully")
+      router.refresh()
+    } catch (error) {
+      console.error("Error changing element order:", error)
     }
   }
 
@@ -76,6 +110,21 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
       {elementToUse || <Loader />}{" "}
       {elementToUse && (
         <div className={styles.actions}>
+          <div>Current order: {order}</div>
+          <form onSubmit={handleOrderChange}>
+            <label htmlFor={`order-${id}`}>New order:</label>
+            <input
+              type='number'
+              id={`order-${id}`}
+              name='order'
+              min='1'
+              defaultValue={order}
+            />
+            <Button green type='submit'>
+              Change order
+              <MdEdit />
+            </Button>
+          </form>
           <Button handleClick={handleElementDelete}>
             <MdDelete />
           </Button>

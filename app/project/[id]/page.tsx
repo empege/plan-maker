@@ -37,18 +37,26 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
           projectId={id}
         />
         <div className={styles.main}>
-          {project.elements.map(({ element, id, text, size, checked }) => (
-            <ElementRenderer
-              key={id}
-              id={id}
-              text={text || undefined}
-              size={size || undefined}
-              checked={checked || undefined}
-              element={
-                element as "title" | "subtitle" | "checkbox" | "text" | "spacer"
-              }
-            />
-          ))}
+          {project.elements.map(
+            ({ element, id, order, text, size, checked }) => (
+              <ElementRenderer
+                key={id}
+                id={id}
+                order={order}
+                text={text || undefined}
+                size={size || undefined}
+                checked={checked || undefined}
+                element={
+                  element as
+                    | "title"
+                    | "subtitle"
+                    | "checkbox"
+                    | "text"
+                    | "spacer"
+                }
+              />
+            )
+          )}
         </div>
         <AddElement projectId={id} />
       </div>
