@@ -23,11 +23,19 @@
 - Drag and drop item to set its new possition? (maybe just change id for now)
 - About page - what is this project, why, how what works, etc ✔️
 - Make sure non logged in looks good!
-- Email confirmation when creating profile
+- Email confirmation when creating profile ✔️
+
+- Confirm password on signup also, not just on changing in profile ✔️
+- If not verified yet, don't stay as non owner? ✔️
+- hash token ✔️
+- Delete profile ✔️
+- Redirect to project when created ✔️
 
 ### What I learned from 01.01.2025. tasks:
 
 https://dndkit.com/ for drag and drop in react, other libs like https://www.npmjs.com/package/react-beautiful-dnd or https://www.npmjs.com/package/@hello-pangea/dnd not working anymore with React 18+
+
+I learned that chatgpt is my friend, but I'll need to recreate this whole project fully without it. Things like this run so smoothly when they are simple, but even this would take me 10 times more time to finish without it. Good thing is that when you go through all of this once with its help, doing it alone is much easier as you already know in theory what is needed :)
 
 <br>
 

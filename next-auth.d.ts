@@ -7,11 +7,15 @@ declare module "next-auth" {
       name?: string | null;
       email?: string | null;
       image?: string | null;
+      verified: boolean;
     };
   }
 
   interface User {
     id: string;
+    name?: string | null;
+    email?: string | null;
+    verified: boolean;
   }
 }
 
@@ -21,5 +25,6 @@ declare module "next-auth/jwt" {
     name?: string | null;
     email?: string | null;
     image?: string | null;
+    verified: boolean;
   }
 }

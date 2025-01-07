@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/api/auth/[...nextauth]/route";
 
-export const DELETE = async (req: NextRequest, { params }: { params: { id: string } }) => {
+export const DELETE = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
 
   const session = await getServerSession(authOptions)
 
@@ -50,7 +50,7 @@ export const DELETE = async (req: NextRequest, { params }: { params: { id: strin
   }
 }
 
-export const PUT = async (req: NextRequest, { params }: { params: { id: string } }) => {
+export const PUT = async (req: NextRequest, { params }: { params: Promise<{ id: string }> }) => {
   const session = await getServerSession(authOptions)
 
   if (!session) {

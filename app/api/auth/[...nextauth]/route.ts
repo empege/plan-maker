@@ -22,12 +22,21 @@ export const authOptions: NextAuthOptions = {
           throw new Error("No user found with this email.");
         }
 
+        if (!user.verified) {
+          throw new Error("Account not verified. Please check your email.");
+        }
+
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
           throw new Error("Invalid credentials.");
         }
 
-        return { id: user.id.toString(), name: user.name, email: user.email };
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          verified: user.verified,
+        };
       },
     })
   ],
@@ -39,11 +48,19 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+        token.verified = user.verified;
       }
       return token;
     },
     async session({ session, token }) {
-      session.user = token;
+      if (session.user) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.verified = token.verified;
+      }
       return session;
     },
   },

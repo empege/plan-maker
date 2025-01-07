@@ -18,13 +18,16 @@ export const createProject = async (formData: FormData) => {
     throw new Error("Unauthorized: No user found.");
   }
 
-  await prisma.project.create({
+  const project = await prisma.project.create({
     data: {
       name,
       description,
       userId: session.user.id
     },
+    select: {
+      id: true,
+    },
   })
 
-  redirect("/")
+  redirect(`/project/${project.id}`)
 }

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import Button from "@/components/Button/Button"
 import { useState, useEffect } from "react"
 import styles from "./profile.module.scss"
+import { MdDelete } from "react-icons/md"
 
 const ProfilePage = () => {
   const { data: session, status } = useSession()
@@ -57,6 +58,31 @@ const ProfilePage = () => {
     }
   }
 
+  const deleteAccount = async () => {
+    const confirmed = confirm("Are you sure you want to delete your account?")
+    if (!confirmed) {
+      return
+    }
+
+    try {
+      const res = await fetch(`/api/auth/delete-account`, {
+        method: "DELETE",
+      })
+
+      if (!res.ok) {
+        const errorData = await res.json()
+        alert(errorData.error || "Failed to delete user")
+        return
+      }
+
+      alert("Account deleted successfully")
+      signOut()
+      router.push("/")
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login")
@@ -71,9 +97,14 @@ const ProfilePage = () => {
     <div>
       {session?.user.name ? (
         <section className={styles.section}>
-          <h1>Hi {session.user.name},</h1>
-          <h2>How are you today?</h2>
-          <h3>You can change your name or password below</h3>
+          <header className={styles.header}>
+            <h1>Hi {session.user.name},</h1>
+            <h2>How are you today?</h2>
+            <h3>You can change your name or password below</h3>
+            <Button handleClick={deleteAccount}>
+              <MdDelete />
+            </Button>
+          </header>
           <form onSubmit={handleChangeInfo}>
             <div>
               <label htmlFor='name'>Name:</label>

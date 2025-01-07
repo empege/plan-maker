@@ -9,7 +9,7 @@ import ElementRenderer from "../isOwner/ElementRenderer"
 import ElementRendererReadOnly from "../readOnly/ElementRenderer"
 import AddElement from "../AddElement"
 
-const ProjectPage = async ({ params }: { params: { id: string } }) => {
+const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params
   const project = await prisma.project.findUnique({
     where: {
