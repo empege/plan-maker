@@ -76,8 +76,9 @@ const ProfilePage = () => {
       }
 
       alert("Account deleted successfully")
-      signOut()
+      await signOut({ redirect: false })
       router.push("/")
+      router.refresh()
     } catch (error) {
       console.error(error)
     }

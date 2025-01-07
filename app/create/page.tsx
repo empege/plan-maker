@@ -1,7 +1,16 @@
 import Button from "@/components/Button/Button"
 import { createProject } from "@/app/actions/createProject"
+import { redirect } from "next/navigation"
+import { getServerSession } from "next-auth/next"
+import { authOptions } from "@/api/auth/[...nextauth]/route"
 
-const CreatePage = () => {
+const CreatePage = async () => {
+  const session = await getServerSession(authOptions)
+
+  if (!session) {
+    redirect("/")
+  }
+
   return (
     <div>
       <h1>Create a project</h1>

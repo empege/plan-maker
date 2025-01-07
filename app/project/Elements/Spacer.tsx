@@ -1,21 +1,13 @@
 "use client"
 
 import styles from "../project.module.scss"
+import { colorMap } from "@/lib/colorMap"
 
 interface ElementProps {
   id: string
   size: number
   color?: "black" | "white" | "red" | "green" | "dark-green" | "golden"
   line?: boolean
-}
-
-const colorMap: Record<string, string> = {
-  black: "#1a1a1a",
-  white: "#f8f8f8",
-  red: "#e63946",
-  green: "#20b2aa",
-  "dark-green": "#157a73",
-  golden: "#ffcc00",
 }
 
 const Spacer: React.FC<ElementProps> = ({

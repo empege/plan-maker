@@ -80,9 +80,36 @@ const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
       </div>
       <div className={styles.main}>
         <div className={styles.main}>
-          {project.elements.map((current) => (
-            <ElementRendererReadOnly key={current.id} {...current} />
-          ))}
+          {project.elements.map(
+            ({ element, id, order, text, size, checked, color, line }) => (
+              <ElementRendererReadOnly
+                key={id}
+                id={id}
+                order={order}
+                text={text || undefined}
+                size={size || undefined}
+                checked={checked || undefined}
+                line={line || false}
+                color={
+                  color as
+                    | "black"
+                    | "white"
+                    | "red"
+                    | "green"
+                    | "dark-green"
+                    | "golden"
+                }
+                element={
+                  element as
+                    | "title"
+                    | "subtitle"
+                    | "checkbox"
+                    | "text"
+                    | "spacer"
+                }
+              />
+            )
+          )}
         </div>
       </div>
     </div>

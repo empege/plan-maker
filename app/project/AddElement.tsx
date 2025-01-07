@@ -126,6 +126,7 @@ const AddElement = ({ projectId }: { projectId: string }) => {
             />
             <label htmlFor='line'>Line:</label>
             <input
+              className={styles.spacerCheckbox}
               type='checkbox'
               id='line'
               name='line'
