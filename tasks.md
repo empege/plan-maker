@@ -18,11 +18,12 @@
     - Lists
     - Text color for all items for user to choose ✔️
     - Add line to spacer ✔️
-- On any change the items change and update on the server
+- On any change the items change and update on the server ✔️
 - Only logged in user can click and change the items, or delete them ✔️
 - Drag and drop item to set its new possition? (maybe just change id for now)
-
 - About page - what is this project, why, how what works, etc ✔️
+- Make sure non logged in looks good!
+- Email confirmation when creating profile
 
 ### What I learned from 01.01.2025. tasks:
 
