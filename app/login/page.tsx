@@ -14,7 +14,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
-  const { data: session, status } = useSession()
+  const { status } = useSession()
   const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
