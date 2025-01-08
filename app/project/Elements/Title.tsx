@@ -14,7 +14,7 @@ const Title: React.FC<ElementProps> = ({ id, text, color }) => {
 
   return (
     <h2
-      className={`${styles.title} ${color}`}
+      className={`${styles.titleElement} ${color}`}
       ref={ref}
       id={id}
       contentEditable

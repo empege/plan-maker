@@ -58,7 +58,7 @@
   &:has(.checkbox input:checked) label {
     text-decoration: line-through;
   }
-  &:has(.spacer):hover .spacer {
+  &:has(.spacer:not(.spacerReadOnly)):hover .spacer {
     transition: background-color 0.2s ease;
     background-color: var(--dark-green);
     border-radius: 4px;
@@ -131,19 +131,31 @@
   }
 }
 
-.title {
+.titleElement {
   font-size: 32px;
   font-weight: 700;
   flex: 1;
   margin-bottom: 0px;
+  &:global(.white) {
+    background-color: var(--dark-green);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
 }
 
-.subtitle {
+.subtitleElement {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
   flex: 1;
   margin-bottom: 0px;
+  &:global(.white) {
+    background-color: var(--dark-green);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
 }
 
 .spacer {
@@ -197,6 +209,11 @@
     font-weight: 500;
     transition: color 0.2s ease;
     user-select: none;
+    &:global(.white) {
+      background-color: var(--dark-green);
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
 
     &:hover {
       color: var(--dark-green);
@@ -205,7 +222,6 @@
 }
 
 .text {
-  // width: 100%;
   padding: 10px 32px;
   font-size: 16px;
   line-height: 1.5;
@@ -216,6 +232,12 @@
   caret-color: var(--green);
   transition: border-color 0.2s ease, background-color 0.2s ease;
   background-color: rgba(32, 178, 170, 0.1);
+  &:global(.white) {
+    background-color: var(--dark-green);
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
 }
 
 // ADD NEW ELEMENT //

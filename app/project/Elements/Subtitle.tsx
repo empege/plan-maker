@@ -14,7 +14,7 @@ const Subtitle: React.FC<ElementProps> = ({ id, text, color }) => {
 
   return (
     <h3
-      className={`${styles.subtitle} ${color}`}
+      className={`${styles.subtitleElement} ${color}`}
       ref={ref}
       id={id}
       contentEditable

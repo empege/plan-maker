@@ -3,13 +3,20 @@
 import Button from "@/components/Button/Button"
 import styles from "./forgot.module.scss"
 import { useState } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (!captchaToken) {
+      setMessage("Please complete the CAPTCHA first!")
+      return
+    }
 
     try {
       const res = await fetch("/api/auth/forgot-password", {
@@ -33,6 +40,10 @@ const ForgotPasswordPage = () => {
       console.error(error)
       setMessage("An error occurred. Please try again.")
     }
+  }
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token)
   }
 
   return (
@@ -59,6 +70,10 @@ const ForgotPasswordPage = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+          onChange={handleCaptchaChange}
+        />
         <Button type='submit'>Reset password</Button>
       </form>
       {message && <p>{message}</p>}

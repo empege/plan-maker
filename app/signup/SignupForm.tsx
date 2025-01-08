@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Button from "@/components/Button/Button"
 import { useRouter } from "next/navigation"
+import ReCAPTCHA from "react-google-recaptcha"
 
 export default function SignupForm() {
   const router = useRouter()
@@ -13,9 +14,15 @@ export default function SignupForm() {
     password2: "",
   })
   const [message, setMessage] = useState("")
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
+    if (!captchaToken) {
+      setMessage("Please complete the CAPTCHA first!")
+      return
+    }
 
     if (form.password !== form.password2) {
       setMessage("Passwords do not match!")
@@ -39,6 +46,10 @@ export default function SignupForm() {
     )
 
     setTimeout(() => router.push("/login"), 5000)
+  }
+
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token)
   }
 
   return (
@@ -85,6 +96,10 @@ export default function SignupForm() {
             required
           />
         </div>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
+          onChange={handleCaptchaChange}
+        />
         <Button type='submit'>Sign up!</Button>
       </form>
       {message && (

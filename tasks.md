@@ -1,6 +1,22 @@
 # All plans and tasks for this project
 
-## Edit project
+## Responsive, Setup AWS?
+
+### 07.01.2025.
+
+- Make sure it at least shows everything on mobile
+- Minor changes:
+  - Input arrow positioning
+- Setup hosting etc
+- Google ReCaptcha ✔️
+
+### What I learned from 07.01.2025. tasks:
+
+<br>
+
+<br>
+
+## Edit project, emails auths
 
 ### 01.01.2025.
 

@@ -22,7 +22,7 @@ const Title = ({
 }: {
   text: string
   color: string | undefined
-}) => <h2 className={`${styles.title} ${color}`}>{text}</h2>
+}) => <h2 className={`${styles.titleElement} ${color}`}>{text}</h2>
 
 const Subtitle = ({
   text,
@@ -30,7 +30,7 @@ const Subtitle = ({
 }: {
   text: string
   color: string | undefined
-}) => <h3 className={`${styles.subtitle} ${color}`}>{text}</h3>
+}) => <h3 className={`${styles.subtitleElement} ${color}`}>{text}</h3>
 
 const Text = ({ text, color }: { text: string; color: string | undefined }) => (
   <div className={`${styles.text} ${color}`}>{text}</div>
@@ -68,7 +68,7 @@ const Spacer = ({
         borderBottom:
           line && resolvedColor ? `2px solid ${resolvedColor}` : undefined,
       }}
-      className={styles.spacer}
+      className={`${styles.spacer} ${styles.spacerReadOnly}`}
     ></div>
   )
 }
