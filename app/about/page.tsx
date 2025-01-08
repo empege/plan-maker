@@ -1,6 +1,11 @@
 import Button from "@/components/Button/Button"
 import styles from "./about.module.scss"
 
+export const metadata = {
+  title: "About - Plan Maker",
+  description: "Welcome to Plan Maker. Manage your projects with ease.",
+}
+
 const AboutPage = () => {
   return (
     <div className={styles.about}>

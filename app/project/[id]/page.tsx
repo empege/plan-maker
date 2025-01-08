@@ -9,6 +9,18 @@ import ElementRenderer from "../isOwner/ElementRenderer"
 import ElementRendererReadOnly from "../readOnly/ElementRenderer"
 import AddElement from "../AddElement"
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const project = await prisma.project.findUnique({
+    where: { id: params.id },
+    select: { name: true, description: true },
+  })
+
+  return {
+    title: `${project?.name} - Plan Maker`,
+    description: project?.description || "Manage your tasks efficiently.",
+  }
+}
+
 const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params
   const project = await prisma.project.findUnique({

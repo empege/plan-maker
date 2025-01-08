@@ -164,22 +164,24 @@ const AddElement = ({ projectId }: { projectId: string }) => {
           <div className={styles.overlay} onClick={handleClose}></div>
           <form className={styles.form} onSubmit={handleSubmit}>
             <h3>Choose an element to add</h3>
-            <select
-              id='element'
-              value={selectedOption}
-              onChange={handleOptionChange}
-              required
-            >
-              <option hidden disabled value=''>
-                {" "}
-                -- select an element --{" "}
-              </option>
-              <option value='title'>Title</option>
-              <option value='subtitle'>Subtitle</option>
-              <option value='checkbox'>Checkbox</option>
-              <option value='spacer'>Spacer</option>
-              <option value='text'>Text</option>
-            </select>
+            <div className={styles.selectWrapper}>
+              <select
+                id='element'
+                value={selectedOption}
+                onChange={handleOptionChange}
+                required
+              >
+                <option hidden disabled value=''>
+                  {" "}
+                  -- select an element --{" "}
+                </option>
+                <option value='title'>Title</option>
+                <option value='subtitle'>Subtitle</option>
+                <option value='checkbox'>Checkbox</option>
+                <option value='spacer'>Spacer</option>
+                <option value='text'>Text</option>
+              </select>
+            </div>
             {renderFields()}
           </form>
         </div>
@@ -198,19 +200,22 @@ const ColorForm = ({
   return (
     <>
       <label htmlFor='text-color'>Text color:</label>
-      <select
-        name='text-color'
-        id='text-color'
-        value={color}
-        onChange={handleColorChange}
-      >
-        <option value='black'>Black</option>
-        <option value='white'>White</option>
-        <option value='red'>Red</option>
-        <option value='green'>Green</option>
-        <option value='dark-green'>Dark green</option>
-        <option value='golden'>Golden</option>
-      </select>
+
+      <div className={styles.selectWrapper}>
+        <select
+          name='text-color'
+          id='text-color'
+          value={color}
+          onChange={handleColorChange}
+        >
+          <option value='black'>Black</option>
+          <option value='white'>White</option>
+          <option value='red'>Red</option>
+          <option value='green'>Green</option>
+          <option value='dark-green'>Dark green</option>
+          <option value='golden'>Golden</option>
+        </select>
+      </div>
     </>
   )
 }

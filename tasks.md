@@ -6,7 +6,7 @@
 
 - Make sure it at least shows everything on mobile
 - Minor changes:
-  - Input arrow positioning
+  - Input arrow positioning ✔️
 - Setup hosting etc
 - Google ReCaptcha ✔️
 

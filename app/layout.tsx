@@ -20,10 +20,12 @@ const bungee = Bungee({
   subsets: ["latin"],
 })
 
-export const metadata: Metadata = {
-  title: "Plan-Maker",
-  description: "Simple but usefull plan app!",
-}
+export const metadata = {
+  title: "Plan Maker",
+  description: "An intuitive tool to manage projects and tasks effectively.",
+  keywords: "project management, task planning, productivity tool",
+  author: "Ivan Mitov",
+} as Metadata
 
 export default function RootLayout({
   children,

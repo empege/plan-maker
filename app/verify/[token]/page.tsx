@@ -1,5 +1,10 @@
 import VerifyClient from "./VerifyClient"
 
+export const metadata = {
+  title: "Verify Your Account - Plan Maker",
+  description: "Verify your account to activate your Plan Maker account.",
+}
+
 export default async function VerifyPage({
   params,
 }: {

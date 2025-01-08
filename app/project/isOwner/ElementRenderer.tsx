@@ -49,7 +49,6 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
         return
       }
 
-      console.log("Element deleted successfully")
       router.refresh()
     } catch (error) {
       console.error("Error deleting element:", error)
@@ -81,7 +80,6 @@ const ElementRenderer: React.FC<ElementRendererProps> = ({
         return
       }
 
-      console.log("Element order changed successfully")
       router.refresh()
     } catch (error) {
       console.error("Error changing element order:", error)

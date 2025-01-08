@@ -4,6 +4,11 @@ import styles from "./page.module.scss"
 import Projects from "@/components/Projects/Projects"
 import Button from "@/components/Button/Button"
 
+export const metadata = {
+  title: "Home - Plan Maker",
+  description: "Welcome to Plan Maker. Manage your projects with ease.",
+}
+
 export default async function Home() {
   const session = await getServerSession(authOptions)
 

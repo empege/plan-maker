@@ -10,7 +10,6 @@ export async function POST(
     const projectId = params.id;
 
     const body = await req.json();
-    console.log("body: ", body);
 
     if (!body) {
       return NextResponse.json(
