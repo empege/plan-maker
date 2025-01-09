@@ -18,6 +18,10 @@
   & a {
     font-size: 14px;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+  }
 }
 
 .container {
@@ -28,6 +32,11 @@
   width: 100%;
   margin: 0 auto;
   max-width: 1200px;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: normal;
+  }
 }
 
 .logo {
@@ -66,6 +75,10 @@
   &:hover a {
     opacity: 1;
   }
+
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 
 .email {
@@ -73,10 +86,18 @@
   &:hover {
     text-shadow: var(--golden) 1px 0 10px;
   }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .flex {
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
 .item {
