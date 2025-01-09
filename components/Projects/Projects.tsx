@@ -18,7 +18,7 @@ const Projects = async () => {
   const otherProjects = projects.filter(
     (project) => project.userId !== session?.user.id
   )
-  console.log(projects, session)
+
   return (
     <>
       {session && (
