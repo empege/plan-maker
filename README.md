@@ -4,7 +4,7 @@
 
 Code can be viewed and reused ([GitHub](https://github.com/empege/plan-maker)). You can also see **tasks.md** file to see how I planned each step and what I learned while creating this web app.
 
-To have it working locally, other than cloning, doing npm install and having the necessary setup ready (like node etc), you have to setup a base, SMTP and your .env file. I used MySQL and Prisma for the base and personal cPanel email, as I never learned this before so it was a nice opportunity.
+To have it working locally, other than cloning, doing npm install and having the necessary setup ready (like node etc), you have to setup a base, SMTP and your .env file. I used MySQL (later Supabase) and Prisma for the base and personal cPanel email, as I never learned this before so it was a nice opportunity.
 
 Locally or live, you can signup, login, reset password (email will be sent to you), create projects, edit project header, add items to projects like title, subtitle, checkbox etc, or you can edit any element by clicking on it!
 

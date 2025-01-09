@@ -4,10 +4,10 @@
 
 ### 07.01.2025.
 
-- Make sure it at least shows everything on mobile
+- Make sure it at least shows everything on mobile ✔️
 - Minor changes:
   - Input arrow positioning ✔️
-- Setup hosting etc
+- Setup hosting etc ✔️
 - Google ReCaptcha ✔️
 - Linting/type build errors... 😠 ❌ - Issue comes from Next Auth, there are some workarounds here: https://stackoverflow.com/questions/76388994/next-js-13-4-and-nextauth-type-error-authoptions-is-not-assignable-to-type-n which didn't work for me and I was too tired for this, I wanted to see this thing live... will come back to this sometimes... MAYBE!
 
