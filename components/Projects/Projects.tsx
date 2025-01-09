@@ -18,7 +18,7 @@ const Projects = async () => {
   const otherProjects = projects.filter(
     (project) => project.userId !== session?.user.id
   )
-
+  console.log(projects, session)
   return (
     <>
       {session && (
@@ -32,6 +32,9 @@ const Projects = async () => {
                     <a href={`/project/${project.id}`}>
                       <h3>{project.name}</h3>
                       <p>{project.description}</p>
+                      <span>
+                        Creator: <i>{project.user.name}</i>
+                      </span>
                     </a>
                   </article>
                 )
@@ -48,6 +51,9 @@ const Projects = async () => {
                     <a href={`/project/${project.id}`}>
                       <h3>{project.name}</h3>
                       <p>{project.description}</p>
+                      <span>
+                        Creator: <i>{project.user.name}</i>
+                      </span>
                     </a>
                   </article>
                 )
@@ -66,6 +72,9 @@ const Projects = async () => {
                   <a href={`/project/${project.id}`}>
                     <h3>{project.name}</h3>
                     <p>{project.description}</p>
+                    <span>
+                      Creator: <i>{project.user.name}</i>
+                    </span>
                   </a>
                 </article>
               )

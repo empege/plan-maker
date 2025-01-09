@@ -47,6 +47,7 @@ const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
           name={project.name}
           description={project.description}
           projectId={id}
+          creator={project.user.name}
         />
         <div className={styles.main}>
           {project.elements.map(
@@ -88,7 +89,11 @@ const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   return (
     <div>
       <div className={styles.header}>
-        <HeaderReadOnly name={project.name} description={project.description} />
+        <HeaderReadOnly
+          name={project.name}
+          description={project.description}
+          creator={project.user.name}
+        />
       </div>
       <div className={styles.main}>
         <div className={styles.main}>

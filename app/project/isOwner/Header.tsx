@@ -10,9 +10,15 @@ interface HeaderProps {
   name: string
   description: string
   projectId: string
+  creator: string
 }
 
-const Header: React.FC<HeaderProps> = ({ name, description, projectId }) => {
+const Header: React.FC<HeaderProps> = ({
+  name,
+  description,
+  projectId,
+  creator,
+}) => {
   const router = useRouter()
   const [editActive, setEditActive] = useState(false)
   const [title, setTitle] = useState(name)
@@ -57,6 +63,9 @@ const Header: React.FC<HeaderProps> = ({ name, description, projectId }) => {
       {!editActive && (
         <>
           <div className={styles.title}>
+            <span>
+              Creator: <i>{creator}</i>
+            </span>
             <h1>{name}</h1>
             <p>{description}</p>
           </div>
