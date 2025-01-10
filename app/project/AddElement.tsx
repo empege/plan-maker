@@ -60,6 +60,15 @@ const AddElement = ({ projectId }: { projectId: string }) => {
       dataToSend.color = formData.color
       dataToSend.line = formData.line
     }
+
+    const form = e.target as HTMLFormElement
+    const submitBtn = form.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement
+    if (submitBtn) {
+      submitBtn.disabled = true
+    }
+
     const res = await fetch(`/api/project/${projectId}/element`, {
       method: "POST",
       headers: {
@@ -199,7 +208,7 @@ const ColorForm = ({
 }) => {
   return (
     <>
-      <label htmlFor='text-color'>Text color:</label>
+      <label htmlFor='text-color'>Color:</label>
 
       <div className={styles.selectWrapper}>
         <select

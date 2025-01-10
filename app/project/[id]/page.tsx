@@ -9,9 +9,14 @@ import ElementRenderer from "../isOwner/ElementRenderer"
 import ElementRendererReadOnly from "../readOnly/ElementRenderer"
 import AddElement from "../AddElement"
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
   const project = await prisma.project.findUnique({
-    where: { id: params.id },
+    where: { id },
     select: { name: true, description: true },
   })
 
