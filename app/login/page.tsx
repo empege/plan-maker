@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation"
 import { useSession } from "next-auth/react"
 import Button from "@/components/Button/Button"
 import Loading from "@/components/Loading/Loading"
-import ReCAPTCHA from "react-google-recaptcha"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -15,16 +14,10 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
   const { status } = useSession()
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-
-    if (!captchaToken) {
-      setError("Please complete the CAPTCHA first!")
-      return
-    }
 
     const result = await signIn("credentials", {
       email,
@@ -45,10 +38,6 @@ export default function LoginPage() {
       setIsLoading(false)
     }
   }, [status, router])
-
-  const handleCaptchaChange = (token: string | null) => {
-    setCaptchaToken(token)
-  }
 
   if (isLoading || status === "loading") {
     return <Loading />
@@ -78,10 +67,6 @@ export default function LoginPage() {
             required
           />
         </div>
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string}
-          onChange={handleCaptchaChange}
-        />
         {error && <p style={{ color: "red" }}>{error}</p>}
         <Button type='submit'>Log in</Button>
         <br />
